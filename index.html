@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Object to the gambling premises at 403 Holloway Road</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#191817;
+    --paper:#f4f2ec;
+    --card:#ffffff;
+    --green:#2f6b4e;
+    --green-dark:#245840;
+    --red:#b3261e;
+    --muted:#6b6862;
+    --line:#191817;
+    --hair:#d8d5cc;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    line-height:1.55;
+    padding:28px 16px 64px;
+  }
+  .wrap{max-width:660px;margin:0 auto}
+  .notice{
+    background:var(--card);
+    border:2px solid var(--line);
+    box-shadow:10px 10px 0 rgba(25,24,23,.14);
+    position:relative;
+  }
+  .tape{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-1.2deg);
+    width:132px;height:26px;background:rgba(47,107,78,.18);
+    border:1px solid rgba(47,107,78,.35);
+  }
+  .masthead{padding:30px 26px 22px;border-bottom:2px solid var(--line)}
+  .eyebrow{
+    font-family:"Archivo",sans-serif;font-weight:600;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--green-dark);margin:0 0 14px;
+  }
+  h1{
+    font-family:"Archivo",sans-serif;font-weight:800;
+    font-size:clamp(27px,6.4vw,40px);line-height:1.04;margin:0;letter-spacing:-.01em;
+  }
+  .sub{margin:14px 0 0;font-size:15px;color:var(--muted)}
+  .sub b{color:var(--ink);font-weight:600}
+  .deadline{
+    display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+    padding:14px 26px;background:#fbeceb;border-bottom:2px solid var(--line);
+  }
+  .deadline .lab{font-family:"Archivo",sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  .deadline .date{font-family:"Archivo",sans-serif;font-weight:800;font-size:19px;color:var(--red)}
+  .body{padding:26px}
+  h2{
+    font-family:"Archivo",sans-serif;font-weight:700;font-size:15px;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--ink);
+    margin:0 0 12px;padding-bottom:9px;border-bottom:1px solid var(--hair);
+  }
+  .grounds{margin:0 0 26px;padding:0;list-style:none;display:grid;gap:12px}
+  .grounds li{display:flex;gap:12px;font-size:14.5px}
+  .grounds .n{
+    flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;
+    font-family:"Archivo",sans-serif;font-weight:700;font-size:12px;
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .field{margin:0 0 18px}
+  label{display:block;font-weight:600;font-size:14px;margin:0 0 6px}
+  label .hint{font-weight:400;color:var(--muted)}
+  input,textarea{
+    width:100%;font-family:inherit;font-size:15px;color:var(--ink);
+    background:#fcfbf8;border:1.5px solid var(--hair);border-radius:0;
+    padding:11px 12px;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(47,107,78,.16)}
+  textarea{resize:vertical;min-height:64px}
+  .btns{display:flex;flex-direction:column;gap:10px;margin:22px 0 4px}
+  .btn{
+    font-family:"Archivo",sans-serif;font-weight:700;font-size:15px;letter-spacing:.01em;
+    padding:14px 20px;border:2px solid var(--line);cursor:pointer;text-decoration:none;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center;
+  }
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:var(--green-dark)}
+  .btn-copy{background:#fff;color:var(--ink)}
+  .btn-copy:hover{background:#f4f2ec}
+  .btn:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+  .copied{font-size:13px;color:var(--green-dark);font-weight:600;margin:8px 0 0}
+  details{margin:16px 0 0;border-top:1px solid var(--hair);padding-top:16px}
+  summary{font-weight:600;font-size:17px;cursor:pointer;color:var(--green-dark)}
+  .preview{
+    white-space:pre-wrap;font-size:14px;line-height:1.55;color:#33302b;
+    background:#fbfaf6;border:1px solid var(--hair);padding:16px;margin-top:12px;
+  }
+  .to{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+  .to b{color:var(--ink);font-weight:600;word-break:break-all}
+  .help{font-size:12.5px;color:var(--muted);line-height:1.5;margin:8px 0 0}
+  .help b{color:var(--ink)}
+  .src-note{font-size:11.5px;color:var(--muted);line-height:1.5;margin:22px 0 30px}
+  .check{display:flex;align-items:flex-start;gap:9px;font-weight:400;font-size:14px;cursor:pointer;margin:0;line-height:1.4}
+  .check input{width:auto;flex:0 0 auto;margin-top:2px;box-shadow:none}
+  .send-note{font-size:14.5px;color:var(--ink);line-height:1.55;margin:14px 0 0}
+  .send-note b{color:var(--ink);font-weight:600}
+  .lead{font-size:14.5px;color:var(--ink);line-height:1.5;margin:0 0 20px}
+  .linkbtn{background:none;border:none;padding:0;font:inherit;color:var(--green-dark);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .linkbtn:disabled{color:var(--muted);text-decoration:none;cursor:not-allowed}
+  .req{color:var(--red);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .reqmsg{color:var(--red)}
+  .btn.is-disabled{opacity:1}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .notice a:not(.btn){color:var(--green-dark);text-underline-offset:2px}
+  .foot{text-align:center;font-size:14px;color:var(--muted);margin:22px 0 0}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="notice">
+    <div class="tape" aria-hidden="true"></div>
+
+    <div class="masthead">
+      <p class="eyebrow">Take action · Islington public representation</p>
+      <h1>Object to the new gambling premises at 403 Holloway Road</h1>
+      <p class="sub">Cain's Amusements Ltd has applied for an <b>Adult Gaming Centre</b> licence for <b>Jackpot Slots, 403 Holloway Road, N7 6HL</b>, at the Nag's Head. Local residents can object in writing.</p>
+    </div>
+
+    <div class="deadline">
+      <span class="lab">Objections must reach the council by</span>
+      <span class="date">19 July 2026</span>
+    </div>
+
+    <div class="body">
+      <h2>Why residents are objecting</h2>
+      <ul class="grounds">
+        <li><span class="n">1</span><span>Four betting shops and two adult gaming centres already cluster at this junction. This application adds another.</span></li>
+        <li><span class="n">2</span><span>This is an area of high provision for young children: six nurseries and children's centres and a primary school sit within a few hundred metres, the nearest almost next door.</span></li>
+        <li><span class="n">3</span><span>The council's own <a href="https://www.islington.gov.uk/~/media/sharepoint-lists/public-records/environmentalprotection/information/adviceandinformation/20222023/gambling-policy-2023-2025.pdf" target="_blank" rel="noopener">policy</a> maps this junction as a crime and anti-social behaviour hotspot around gambling premises, with violence making up 43% of offences recorded at them, most of them during the day and early evening when children are about.</span></li>
+      </ul>
+      <p class="src-note">Figures come from Islington Council's <a href="https://www.islington.gov.uk/~/media/sharepoint-lists/public-records/environmentalprotection/information/adviceandinformation/20222023/gambling-policy-2023-2025.pdf" target="_blank" rel="noopener">Gambling Premises Licensing Policy 2023-2025</a>, including its Local Area Profile and crime study (2019-2021).</p>
+
+      <h2>Take action</h2>
+      <p class="lead">This form pre-populates an email to the Islington licensing team (<b>licensing@islington.gov.uk</b>) that you can easily send.</p>
+      <div class="field">
+        <label for="name">Your full name <span class="hint">(required)</span></label>
+        <input id="name" type="text" autocomplete="name" required placeholder="e.g. Alex Morgan">
+      </div>
+      <div class="field">
+        <label for="addr">Your address <span class="hint">(required)</span></label>
+        <input id="addr" type="text" autocomplete="street-address" required placeholder="e.g. 403 Holloway Road, N7 6HL">
+      </div>
+      <div class="field">
+        <label for="personal">Add a personal note <span class="hint">(recommended)</span></label>
+        <p class="help" style="margin:4px 0 10px">Objections written in your own words carry more weight than identical copies, so a line of your own really counts.</p>
+        <textarea id="personal" placeholder="e.g. I walk my children through this junction every day and there is already gambling on every corner."></textarea>
+      </div>
+      <div class="field">
+        <label class="check"><input id="anon" type="checkbox"> Ask the council to keep my name and address confidential from the applicant</label>
+      </div>
+
+      <div class="btns">
+        <a id="send" class="btn btn-primary" href="#">Send from your email app</a>
+        <button id="copy" class="btn btn-copy" type="button">Or copy the text and send it to licensing@islington.gov.uk</button>
+      </div>
+      <p id="reqmsg" class="help reqmsg" style="display:none">Add your name and address above to send.</p>
+      <p id="copied" class="copied" role="status" aria-live="polite"></p>
+
+      <details>
+        <summary>Preview the email</summary>
+        <div id="preview" class="preview"></div>
+      </details>
+    </div>
+  </div>
+  <p class="foot">Prepared by a local resident. Not an official council page.</p>
+</div>
+
+<script>
+(function(){
+  var RECIPIENT = "licensing@islington.gov.uk";
+  var SUBJECT = "Objection: Adult Gaming Centre premises licence, 403 Holloway Road, N7 6HL";
+
+  var nameEl = document.getElementById('name');
+  var addrEl = document.getElementById('addr');
+  var persEl = document.getElementById('personal');
+  var sendEl = document.getElementById('send');
+  var copyEl = document.getElementById('copy');
+  var copiedEl = document.getElementById('copied');
+  var previewEl = document.getElementById('preview');
+  var anonEl = document.getElementById('anon');
+  var reqmsgEl = document.getElementById('reqmsg');
+
+  function buildBody(){
+    var name = nameEl.value.trim() || "[your name]";
+    var addr = addrEl.value.trim() || "[your address]";
+    var pers = persEl.value.trim();
+    var anon = anonEl.checked;
+
+    var lines = [];
+    lines.push("Dear Licensing Team,");
+    lines.push("");
+    lines.push("I am writing to object to the application by Cain's Amusements Ltd for an Adult Gaming Centre premises licence under section 159 of the Gambling Act 2005, for Jackpot Slots, 403 Holloway Road, London, N7 6HL.");
+    lines.push("");
+    lines.push("I am a local resident living at " + addr + ", so I am a person likely to be affected by the authorised activities. My objection relates to two of the licensing objectives: protecting children and vulnerable people from being harmed or exploited by gambling, and preventing gambling from being associated with crime and disorder.");
+    lines.push("");
+    lines.push("This junction is already saturated with gambling. Within roughly 150 metres there are four betting shops (Ladbrokes, William Hill, Paddy Power and Betfred) and two adult gaming centres (Admiral Casino and MERKUR Slots).");
+    lines.push("");
+    lines.push("To put that in perspective, the council's own Gambling Premises Licensing Policy 2023-2025 records 32 betting shops and 6 adult gaming centres across the whole borough. Four of those 32 betting shops, and two of the six adult gaming centres, are on this one junction.");
+    lines.push("");
+    lines.push("The policy identifies the Nag's Head as an existing gambling cluster in a deprived area, and as one of the places with the highest crime and anti-social behaviour around gambling premises. In the council's own study, of the 265 offences recorded at the borough's gambling premises, 43% were violence against the person, and harassment was the single most common offence.");
+    lines.push("");
+    lines.push("The council's own policy cites GambleAware data in placing Islington in the country's highest quintile for problem gambling, and the third lowest for use of support services such as counselling and treatment. This is exactly the community the licensing objectives exist to protect.");
+    lines.push("");
+    lines.push("The same junction has high provision for young children: within a few hundred metres there are several nurseries and children's centres, including Fatiha Nursery, Willow Children's Centre, Bright Beginners Daycare, Les Petites Etoiles Bilingual Nursery, Everbloom wraparound childcare and Hornsey Road Children's Centre, along with Grafton Primary School on Eburne Road, which takes children from age two. Some of these are essentially next door to the proposed premises.");
+    lines.push("");
+    lines.push("The crime recorded at these premises is concentrated during the day and early evening, peaking at lunchtime and after 5pm, exactly when children are travelling to and from those settings.");
+    lines.push("");
+    lines.push("Adding yet another adult gaming centre here would deepen that saturation and increase the risk to children and vulnerable people.");
+    if(pers){
+      lines.push("");
+      lines.push("On a more personal note, " + pers);
+    }
+    lines.push("");
+    lines.push("I ask the licensing subcommittee to refuse this application. Please keep me informed of its progress and allow me to attend any hearing.");
+    lines.push("");
+    lines.push("Yours faithfully,");
+    lines.push(name);
+    lines.push(addr);
+    if(anon){
+      lines.push("");
+      lines.push("I would be grateful if my name and address could be withheld from the applicant and kept confidential.");
+    }
+    return lines.join("\n");
+  }
+
+  function refresh(){
+    var body = buildBody();
+    previewEl.textContent = body;
+    sendEl.href = "mailto:" + RECIPIENT +
+      "?subject=" + encodeURIComponent(SUBJECT) +
+      "&body=" + encodeURIComponent(body);
+    var ready = nameEl.value.trim() !== "" && addrEl.value.trim() !== "";
+    if(ready){ reqmsgEl.style.display = 'none'; }
+  }
+
+  [nameEl, addrEl, persEl].forEach(function(el){
+    el.addEventListener('input', function(){ refresh(); copiedEl.textContent=""; });
+  });
+  anonEl.addEventListener('change', function(){ refresh(); copiedEl.textContent=""; });
+  sendEl.addEventListener('click', function(e){
+    if(nameEl.value.trim() === "" || addrEl.value.trim() === ""){
+      e.preventDefault();
+      reqmsgEl.style.display = 'block';
+      (nameEl.value.trim() === "" ? nameEl : addrEl).focus();
+    }
+  });
+
+  copyEl.addEventListener('click', function(){
+    if(nameEl.value.trim() === "" || addrEl.value.trim() === ""){
+      reqmsgEl.style.display = 'block';
+      (nameEl.value.trim() === "" ? nameEl : addrEl).focus();
+      return;
+    }
+    var full = "To: " + RECIPIENT + "\nSubject: " + SUBJECT + "\n\n" + buildBody();
+    function done(){ copiedEl.textContent = "Copied. Paste it into a new email to " + RECIPIENT; }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(full).then(done, function(){ fallback(full, done); });
+    } else { fallback(full, done); }
+  });
+
+  function fallback(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.focus(); ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){ copiedEl.textContent="Couldn't copy automatically — open the preview and copy it manually."; }
+    document.body.removeChild(ta);
+  }
+
+  refresh();
+})();
+</script>
+</body>
+</html>
