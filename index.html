@@ -248,10 +248,11 @@
     if(ready){ reqmsgEl.style.display = 'none'; }
   }
 
+  var COPY_LABEL = copyEl.textContent;
   [nameEl, addrEl, persEl].forEach(function(el){
-    el.addEventListener('input', function(){ refresh(); copiedEl.textContent=""; });
+    el.addEventListener('input', function(){ refresh(); copiedEl.textContent=""; copyEl.textContent=COPY_LABEL; });
   });
-  anonEl.addEventListener('change', function(){ refresh(); copiedEl.textContent=""; });
+  anonEl.addEventListener('change', function(){ refresh(); copiedEl.textContent=""; copyEl.textContent=COPY_LABEL; });
   sendEl.addEventListener('click', function(e){
     if(nameEl.value.trim() === "" || addrEl.value.trim() === ""){
       e.preventDefault();
@@ -267,7 +268,7 @@
       return;
     }
     var full = "To: " + RECIPIENT + "\nSubject: " + SUBJECT + "\n\n" + buildBody();
-    function done(){ copiedEl.textContent = "Copied. Paste it into a new email to " + RECIPIENT; }
+    function done(){ copyEl.textContent = "Text copied! Send it to " + RECIPIENT + " from your email app"; }
     if(navigator.clipboard && navigator.clipboard.writeText){
       navigator.clipboard.writeText(full).then(done, function(){ fallback(full, done); });
     } else { fallback(full, done); }
