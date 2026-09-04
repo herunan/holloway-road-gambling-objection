@@ -9,16 +9,16 @@
     <rect x="533" y="27" width="120" height="30" fill="#2f6b4e" opacity="0.18" stroke="#2f6b4e" stroke-opacity="0.35"/>
   </g>
   <!-- eyebrow -->
-  <text x="90" y="150" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="#245840">ISLINGTON PUBLIC REPRESENTATION</text>
+  <text x="90" y="150" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="#245840">ISLINGTON PLANNING OBJECTION</text>
   <!-- headline -->
   <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="800" fill="#191817">
-    <text x="88" y="242" font-size="60">TAKE ACTION: Object new</text>
-    <text x="88" y="314" font-size="60">gambling venue to improve</text>
-    <text x="88" y="386" font-size="60">safety in Holloway Road</text>
+    <text x="88" y="242" font-size="60">Object to the gambling</text>
+    <text x="88" y="314" font-size="60">planning application at</text>
+    <text x="88" y="386" font-size="60">403 Holloway Road</text>
   </g>
   <!-- deadline chip -->
-  <rect x="88" y="432" width="470" height="52" fill="#fbeceb"/>
-  <text x="108" y="468" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#b3261e">Object by 19 July 2026</text>
+  <rect x="88" y="432" width="530" height="52" fill="#fbeceb"/>
+  <text x="108" y="468" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="28" font-weight="700" fill="#b3261e">Comment by 5 September 2026</text>
   <!-- footer -->
-  <text x="90" y="536" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" fill="#6b6862">Jackpot Slots, 403 Holloway Road, N7 6HL &#183; Nag's Head junction</text>
+  <text x="90" y="536" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="23" fill="#6b6862">24-hour Adult Gaming Centre &#183; P2026/1808/FUL &#183; Parkhurst Road corner</text>
 </svg>
