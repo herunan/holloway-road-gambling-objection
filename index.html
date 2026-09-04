@@ -200,7 +200,18 @@
 (function(){
   var RECIPIENT = "planning@islington.gov.uk";
   var REF = "P2026/1808/FUL";
-  var SUBJECT = "Objection: planning application " + REF + ", 403 Holloway Road, N7 6HL";
+  // Every subject is built around REF so the reference can never be dropped.
+  var SUBJECTS = [
+    "Objection: planning application " + REF + ", 403 Holloway Road, N7 6HL",
+    "Objection – " + REF + ", 403 Holloway Road N7 6HL",
+    "Comment on planning application " + REF + " (403 Holloway Road)",
+    REF + " – objection from a Holloway Road resident",
+    "Representation against " + REF + ", 403 Holloway Road",
+    "Objection to proposed development at 403 Holloway Road (" + REF + ")",
+    REF + ", 403 Holloway Road – neighbour objection",
+    "Planning objection: 403 Holloway Road, N7 6HL (ref " + REF + ")",
+    "Concerns regarding application " + REF + " at 403 Holloway Road"
+  ];
   var MAILTO_LIMIT = 6000;
 
   var nameEl = document.getElementById('name');
@@ -321,6 +332,7 @@
 
   var recipe = {};
   function seed(){
+    recipe.subject = ri(SUBJECTS.length);
     recipe.greeting = ri(GREETINGS.length);
     recipe.opening = ri(6);
     recipe.cumulative = ri(CUMULATIVE.length);
@@ -344,8 +356,6 @@
 
     var lines = [];
     lines.push(GREETINGS[recipe.greeting]);
-    lines.push("");
-    lines.push("Re: Objection to planning application " + REF + ", 403 Holloway Road, London, N7 6HL");
     lines.push("");
     lines.push(openings(addr)[recipe.opening]);
     lines.push("");
@@ -383,8 +393,9 @@
     reqmsgEl.style.display = 'block';
     (nameEl.value.trim() === "" ? nameEl : addrEl).focus();
   }
+  function subject(){ return SUBJECTS[recipe.subject]; }
   function fullText(body){
-    return "To: " + RECIPIENT + "\nSubject: " + SUBJECT + "\n\n" + body;
+    return "To: " + RECIPIENT + "\nSubject: " + subject() + "\n\n" + body;
   }
   function copyText(text, done, fail){
     if(navigator.clipboard && navigator.clipboard.writeText){
@@ -403,14 +414,16 @@
 
   function refresh(){
     var body = buildBody();
-    previewEl.textContent = body;
+    // The subject varies too, so show it — otherwise a reroll looks like it
+    // only changed the body.
+    previewEl.textContent = "Subject: " + subject() + "\n\n" + body;
     var full = "mailto:" + RECIPIENT +
-      "?subject=" + encodeURIComponent(SUBJECT) +
+      "?subject=" + encodeURIComponent(subject()) +
       "&body=" + encodeURIComponent(body);
     // Long mailto links are silently dropped by many mail apps, so fall back
     // to a subject-only link and put the text on the clipboard instead.
     sendEl.href = full.length > MAILTO_LIMIT
-      ? "mailto:" + RECIPIENT + "?subject=" + encodeURIComponent(SUBJECT)
+      ? "mailto:" + RECIPIENT + "?subject=" + encodeURIComponent(subject())
       : full;
     sendEl.dataset.long = full.length > MAILTO_LIMIT ? "1" : "0";
     if(!missing()){ reqmsgEl.style.display = 'none'; }
