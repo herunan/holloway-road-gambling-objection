@@ -300,6 +300,18 @@
     "If I may add a personal point, "
   ];
 
+  // People write their note as a sentence of its own, but it is spliced in
+  // after a lead-in ("On a more personal note, "), so the first letter drops
+  // to lower case. Words that carry their own capital keep it.
+  var KEEPS_CAPITAL = /^(I|I['’]\w+|Holloway|Islington|Parkhurst|Hornsey|Camden|Hackney|Haringey|Finsbury|Archway|Highbury|Caledonian|Grafton|Whittington|London|Jackpot|Cain['’]s|Nag['’]s|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|January|February|March|April|May|June|July|August|September|October|November|December)$/;
+
+  function lowerFirst(text){
+    var word = text.split(/[\s,.;:!?]/)[0];
+    // A second capital marks an acronym or a name (NHS, B&Q, McDonald's).
+    if(/[A-Z]/.test(word.slice(1)) || KEEPS_CAPITAL.test(word)){ return text; }
+    return text.charAt(0).toLowerCase() + text.slice(1);
+  }
+
   function shuffle(arr){
     var a = arr.slice();
     for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
@@ -352,7 +364,7 @@
     if(recipe.character >= 0){ lines.push(CHARACTER[recipe.character]); lines.push(""); }
 
     if(pers){
-      lines.push(PERSONAL_LEADS[recipe.lead] + pers);
+      lines.push(PERSONAL_LEADS[recipe.lead] + lowerFirst(pers));
       lines.push("");
     }
 
