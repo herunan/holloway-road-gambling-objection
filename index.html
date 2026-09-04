@@ -169,21 +169,21 @@
         <textarea id="personal" placeholder="e.g. My children walk past this corner to school every day, and there is already gambling on every side of it."></textarea>
       </div>
 
+      <details>
+        <summary>Preview the email</summary>
+        <div id="preview" class="preview"></div>
+      </details>
+      <div class="regenrow">
+        <span>Prefer different wording?</span>
+        <button id="regen" class="linkbtn" type="button">Rewrite my objection</button>
+      </div>
+      <p id="copied" class="copied" role="status" aria-live="polite"></p>
+
       <div class="btns">
         <a id="send" class="btn btn-primary" href="#">Send from your email app</a>
         <button id="copy" class="btn btn-copy" type="button">Or copy the text and send it to planning@islington.gov.uk</button>
       </div>
       <p id="reqmsg" class="help reqmsg" style="display:none">Add your name and address above to send.</p>
-      <p id="copied" class="copied" role="status" aria-live="polite"></p>
-      <div class="regenrow">
-        <span>Prefer different wording?</span>
-        <button id="regen" class="linkbtn" type="button">Rewrite my objection</button>
-      </div>
-
-      <details>
-        <summary>Preview the email</summary>
-        <div id="preview" class="preview"></div>
-      </details>
 
       <div class="otherbox">
         <h3>Other ways to object</h3>
@@ -410,7 +410,7 @@
 
   regenEl.addEventListener('click', function(){
     seed(); refresh();
-    copiedEl.textContent = "Rewritten. Open the preview below to read your new version.";
+    copiedEl.textContent = "Rewritten. Open the preview above to read your new version.";
   });
 
   sendEl.addEventListener('click', function(e){
@@ -421,7 +421,7 @@
         ? "Your objection is copied. Paste it into the email that opens, then send."
         : "Opening your email app. The text is also copied, so if the email arrives blank just paste it in.";
     }, function(){
-      copiedEl.textContent = "If the email arrives blank, open the preview below and copy the text into it.";
+      copiedEl.textContent = "If the email arrives blank, open the preview above and copy the text into it.";
     });
   });
 
@@ -430,7 +430,7 @@
     copyText(fullText(buildBody()), function(){
       copiedEl.textContent = "Copied. Paste it into a new email to " + RECIPIENT;
     }, function(){
-      copiedEl.textContent = "Couldn't copy automatically. Open the preview below and copy it manually.";
+      copiedEl.textContent = "Couldn't copy automatically. Open the preview above and copy it manually.";
     });
   });
 
